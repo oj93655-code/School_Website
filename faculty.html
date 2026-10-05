@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenfield Academy | Faculty</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme">
+
+    <header class="main-header">
+        <div class="logo-container">
+            <div class="logo-icon">🎓</div>
+            <div class="logo-text">
+                <h1>Greenfield Academy</h1>
+                <span>EST. 1965</span>
+            </div>
+        </div>
+
+        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav class="nav-menu" id="nav-menu">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item">About Us</a>
+            <a href="admissions.html" class="nav-item">Admissions</a>
+            <a href="academics.html" class="nav-item">Academics</a>
+            <a href="faculty.html" class="nav-item active">Faculty</a> <a href="facilities.html" class="nav-item">Facilities</a>
+            <a href="gallery.html" class="nav-item">Gallery</a>
+            <a href="news-events.html" class="nav-item">News & Events</a>
+            <a href="portal.html" class="nav-item">Portal</a>
+            <a href="contact.html" class="nav-item contact-btn">Contact</a>
+        </nav>
+    </header>
+
+    <main class="faculty-container">
+        <div class="center-heading-group">
+            <span class="section-tag-center">OUR PEOPLE</span>
+            <h2 class="faculty-main-title">Faculty & Staff</h2>
+            <p class="faculty-subtitle">
+                Our educators bring decades of experience, passion, and innovation into every classroom. Over 180 dedicated professionals serve our school community.
+            </p>
+        </div>
+
+        <div class="faculty-grid">
+            
+            <div class="faculty-card">
+                <div class="faculty-img-container">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600" alt="Dr. Margaret Osei-Bonsu" class="faculty-photo">
+                </div>
+                <div class="faculty-details">
+                    <h3>Dr. Margaret Osei-Bonsu</h3>
+                    <p class="designation">Principal</p>
+                    <p class="department">Administration</p>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-img-container">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600" alt="Mr. James Adeyemi" class="faculty-photo">
+                </div>
+                <div class="faculty-details">
+                    <h3>Mr. James Adeyemi</h3>
+                    <p class="designation">Vice Principal</p>
+                    <p class="department">Academics</p>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-img-container">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600" alt="Ms. Linda Kwarteng" class="faculty-photo">
+                </div>
+                <div class="faculty-details">
+                    <h3>Ms. Linda Kwarteng</h3>
+                    <p class="designation">Head of Sciences</p>
+                    <p class="department">Science Department</p>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-img-container">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600" alt="Mr. Kofi Mensah" class="faculty-photo">
+                </div>
+                <div class="faculty-details">
+                    <h3>Mr. Kofi Mensah</h3>
+                    <p class="designation">Head of Humanities</p>
+                    <p class="department">Arts & Humanities</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="faculty-action-row">
+            <button class="btn-outline-dark">
+                <span class="btn-icon">👥</span> View All Faculty & Staff
+            </button>
+        </div>
+    </main>
+
+    <div class="help-badge">?</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navMenu = document.getElementById('nav-menu');
+
+            if (mobileMenu && navMenu) {
+                mobileMenu.addEventListener('click', function() {
+                    navMenu.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

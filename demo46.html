@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f9fa;
+        }
+
+        /* Centered Box with the Pink Glow Effect */
+        .converter-box {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 30px;
+            width: 450px;
+            text-align: center;
+            /* Box shadow mimicking the distinct pink glow from the video */
+            box-shadow: 0 0 20px 5px rgba(255, 20, 147, 0.4);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: #000;
+            font-weight: normal;
+        }
+
+        /* Layout Grid for inputs and selectors */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .separator {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Styling Form Elements */
+        input, select {
+            width: 100%;
+            padding: 8px 12px;
+            font-size: 1rem;
+            border: 1px solid #777;
+            outline: none;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        input::placeholder {
+            color: #555;
+        }
+
+        /* Specific text center alignment for output box matching the placeholder state */
+        #output-val {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="converter-box">
+        <h1>Converter</h1>
+        
+        <div class="grid-container">
+            <input type="number" id="input-val" placeholder="input">
+            <div class="separator">-</div>
+            <input type="text" id="output-val" value="0" readonly>
+        </div>
+
+        <div class="grid-container">
+            <select id="input-unit">
+                <option value="km">kilometer</option>
+                <option value="m">meter</option>
+            </select>
+            <div class="separator">-</div>
+            <select id="output-unit">
+                <option value="m">Meter</option>
+                <option value="km">Kilometer</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        const inputVal = document.getElementById('input-val');
+        const outputVal = document.getElementById('output-val');
+        const inputUnit = document.getElementById('input-unit');
+        const outputUnit = document.getElementById('output-unit');
+
+        function performConversion() {
+            const value = parseFloat(inputVal.value);
+            
+            // If field is empty or not a number, reset output to 0
+            if (isNaN(value)) {
+                outputVal.value = "0";
+                return;
+            }
+
+            const fromUnit = inputUnit.value;
+            const toUnit = outputUnit.value;
+            let result = value;
+
+            // Conversion Logic
+            if (fromUnit === 'km' && toUnit === 'm') {
+                result = value * 1000;
+            } else if (fromUnit === 'm' && toUnit === 'km') {
+                result = value / 1000;
+            }
+            // If units match (e.g. km to km), result remains value
+
+            outputVal.value = result;
+        }
+
+        // Listen for input modifications or unit switches
+        inputVal.addEventListener('input', performConversion);
+        inputUnit.addEventListener('change', performConversion);
+        outputUnit.addEventListener('change', performConversion);
+    </script>
+
+</body>
+</html>

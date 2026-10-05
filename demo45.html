@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fce4ec; /* Light pink background matching the video */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Top Header Navigation Panel */
+        .header {
+            background-color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            background-color: #e91e63;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* Main Workspace Container */
+        .editor-container {
+            display: flex;
+            flex: 1;
+            padding: 25px;
+            gap: 20px;
+            height: calc(100vh - 50px);
+        }
+
+        /* Individual Column Wrapper */
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 4px solid #fff; /* White structural border */
+        }
+
+        /* Color Borders for each specific column */
+        .column.html-col { border-color: #e91e63; }
+        .column.css-col { border-color: #e91e63; }
+        .column.js-col { border-color: #e91e63; }
+        .column.output-col { border-color: #e91e63; }
+
+        /* Column Header Tabs */
+        .column-header {
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Header Specific Tab Colors */
+        .html-header { background-color: #e91e63; }
+        .css-header { background-color: #e91e63; }
+        .js-header { background-color: #e91e63; }
+        .output-header { background-color: #e91e63; }
+
+        /* Textareas and Output Frame */
+        textarea {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15px;
+            resize: none;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Specific input placeholder styles */
+        textarea::placeholder {
+            color: #999;
+            font-style: italic;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #fdf2f4; /* Subtle pink tint inside output frame */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">
+            <span class="logo-icon">&lt;/&gt;</span> Code Editor
+        </div>
+    </div>
+
+    <div class="editor-container">
+        
+        <div class="column html-col">
+            <div class="column-header html-header">HTML</div>
+            <textarea id="html-code" placeholder="Enter HTML Code Here...." spellcheck="false">&lt;h1 style="color:green"&gt;Hello Pratik&lt;/h1&gt;
+
+&lt;h1 style="color:pink"&gt;Hello Akash&lt;/h1&gt;
+
+&lt;h4 style="color:violet"&gt;Hello Abc&lt;/h4&gt;
+
+&lt;button id="btn1"&gt;Click here&lt;/button&gt;</textarea>
+        </div>
+
+        <div class="column css-col">
+            <div class="column-header css-header">CSS</div>
+            <textarea id="css-code" placeholder="Enter CSS Code Here...." spellcheck="false">#btn1{
+  padding: 10px 30px;
+  margin: 10px 90px;
+  font-weight: bold;
+  border-radius: 20px;
+}</textarea>
+        </div>
+
+        <div class="column js-col">
+            <div class="column-header js-header">JS</div>
+            <textarea id="js-code" placeholder="Enter JS Code Here...." spellcheck="false">btn1.addEventListener("click", function(){
+  alert("Hello Pratik...");
+});</textarea>
+        </div>
+
+        <div class="column output-col">
+            <div class="column-header output-header">Output</div>
+            <iframe id="output"></iframe>
+        </div>
+
+    </div>
+
+    <script>
+        const htmlEditor = document.getElementById('html-code');
+        const cssEditor = document.getElementById('css-code');
+        const jsEditor = document.getElementById('js-code');
+        const outputFrame = document.getElementById('output');
+
+        function updateOutput() {
+            const html = htmlEditor.value;
+            const css = cssEditor.value;
+            const js = jsEditor.value;
+
+            // Generate a complete document structure inside the iframe
+            const iframeSource = `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <style>
+                        /* Base styling for the frame preview */
+                        body { 
+                            font-family: sans-serif; 
+                            padding: 15px; 
+                            margin: 0;
+                        }
+                        ${css}
+                    </style>
+                </head>
+                <body>
+                    ${html}
+                    <script>
+                        try {
+                            // Run JS safely within frame scope
+                            ${js}
+                        } catch (err) {
+                            console.error(err);
+                        }
+                    <\/script>
+                </body>
+                </html>
+            `;
+
+            // Write content directly into the frame
+            const doc = outputFrame.contentDocument || outputFrame.contentWindow.document;
+            doc.open();
+            doc.write(iframeSource);
+            doc.close();
+        }
+
+        // Event listeners to update preview in real-time as you type
+        htmlEditor.addEventListener('input', updateOutput);
+        cssEditor.addEventListener('input', updateOutput);
+        jsEditor.addEventListener('input', updateOutput);
+
+        // Initial render run on page load
+        updateOutput();
+    </script>
+</body>
+</html>

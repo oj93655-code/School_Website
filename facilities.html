@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenfield Academy | Facilities</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme">
+
+    <header class="main-header">
+        <div class="logo-container">
+            <div class="logo-icon">🎓</div>
+            <div class="logo-text">
+                <h1>Greenfield Academy</h1>
+                <span>EST. 1965</span>
+            </div>
+        </div>
+        
+        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav class="nav-menu" id="nav-menu">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item">About Us</a>
+            <a href="admissions.html" class="nav-item">Admissions</a>
+            <a href="academics.html" class="nav-item">Academics</a>
+            <a href="faculty.html" class="nav-item">Faculty</a>
+            <a href="facilities.html" class="nav-item active">Facilities</a> <a href="gallery.html" class="nav-item">Gallery</a>
+            <a href="news-events.html" class="nav-item">News & Events</a>
+            <a href="portal.html" class="nav-item">Portal</a>
+            <a href="contact.html" class="nav-item contact-btn">Contact</a>
+        </nav>
+    </header>
+
+    <main class="facilities-container">
+        <span class="section-tag">FACILITIES</span>
+        <h2 class="facilities-main-title">World-Class Infrastructure</h2>
+        <p class="facilities-intro-text">
+            We invest continuously in safe, stimulating environments where students can learn, explore, and thrive.
+        </p>
+
+        <div class="facilities-layout-grid">
+            
+            <div class="featured-campus-card">
+                <div class="card-overlay-content">
+                    <h3>State-of-the-Art Campus</h3>
+                    <p>Spanning 18 acres in the heart of the city</p>
+                </div>
+            </div>
+
+            <div class="amenities-subgrid">
+                
+                <div class="facility-item-card">
+                    <div class="facility-icon">📚</div>
+                    <h4>Library</h4>
+                    <p>40,000+ volumes, digital databases, and dedicated quiet study pods.</p>
+                </div>
+
+                <div class="facility-item-card">
+                    <div class="facility-icon">🔬</div>
+                    <h4>Laboratories</h4>
+                    <p>Physics, Chemistry, Biology & fully equipped Computer labs.</p>
+                </div>
+
+                <div class="facility-item-card">
+                    <div class="facility-icon">🚌</div>
+                    <h4>Transport</h4>
+                    <p>24 air-conditioned buses covering 35 routes across the city.</p>
+                </div>
+
+                <div class="facility-item-card">
+                    <div class="facility-icon">🏆</div>
+                    <h4>Sports</h4>
+                    <p>Football, basketball courts, Olympic pool & athletics track.</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div class="help-badge">?</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navMenu = document.getElementById('nav-menu');
+
+            if (mobileMenu && navMenu) {
+                mobileMenu.addEventListener('click', function() {
+                    navMenu.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

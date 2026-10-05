@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenfield Academy | Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme">
+
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="logo-container">
+            <div class="logo-icon">🎓</div>
+            <div class="logo-text">
+                <h1>Greenfield Academy</h1>
+                <span>EST. 1965</span>
+            </div>
+        </div>
+
+        <!-- Added: Three-Line Menu Button for Mobile Layout -->
+        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- Added: id="nav-menu" so JavaScript can reference it -->
+        <nav class="nav-menu" id="nav-menu">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item">About Us</a>
+            <a href="admissions.html" class="nav-item">Admissions</a>
+            <a href="academics.html" class="nav-item">Academics</a>
+            <a href="faculty.html" class="nav-item">Faculty</a>
+            <a href="facilities.html" class="nav-item">Facilities</a>
+            <a href="gallery.html" class="nav-item">Gallery</a>
+            <a href="news-events.html" class="nav-item">News & Events</a>
+            <a href="portal.html" class="nav-item">Portal</a>
+            <a href="contact.html" class="nav-item active contact-btn">Contact</a> <!-- Restored template destination pointer link -->
+        </nav>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="contact-container">
+        <span class="section-tag">GET IN TOUCH</span>
+        <h2 class="contact-main-title">Contact Us</h2>
+
+        <!-- Split 2-Column Layout -->
+        <div class="contact-split-grid">
+            
+            <!-- Left Side: Interactive Contact Form -->
+            <section class="contact-form-block">
+                <h3>Send Us a Message</h3>
+                <form class="clean-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailAddr">Email Address</label>
+                            <input type="email" id="emailAddr" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="msgSubject">Subject</label>
+                        <input type="text" id="msgSubject" placeholder="Admissions inquiry, general question..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="msgContent">Message</label>
+                        <textarea id="msgContent" rows="6" placeholder="Type your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary form-submit-btn">Send Message</button>
+                </form>
+            </section>
+
+            <!-- Right Side: Structural Info Directory Blocks -->
+            <aside class="contact-info-directory">
+                
+                <!-- Section 1: Main Admin Office -->
+                <div class="directory-card">
+                    <h4>Administration Office</h4>
+                    <ul class="directory-list">
+                        <li><span class="dir-icon">📍</span> 128 Greenfield Avenue, Ridge District</li>
+                        <li><span class="dir-icon">📞</span> +233 (0) 302 123 456</li>
+                        <li><span class="dir-icon">✉️</span> info@greenfield.edu.gh</li>
+                    </ul>
+                </div>
+
+                <!-- Section 2: Admissions Bureau -->
+                <div class="directory-card">
+                    <h4>Admissions Bureau</h4>
+                    <ul class="directory-list">
+                        <li><span class="dir-icon">📞</span> +233 (0) 302 123 457</li>
+                        <li><span class="dir-icon">✉️</span> admissions@greenfield.edu.gh</li>
+                        <li><span class="dir-icon">🕒</span> Mon - Fri: 8:00 AM — 4:00 PM</li>
+                    </ul>
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Floating Help Button -->
+    <div class="help-badge">?</div>
+
+    <!-- JavaScript Toggle Engine for Mobile Interactions -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navMenu = document.getElementById('nav-menu');
+
+            if (mobileMenu && navMenu) {
+                mobileMenu.addEventListener('click', function() {
+                    navMenu.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

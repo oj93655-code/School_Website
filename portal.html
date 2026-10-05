@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenfield Academy | Student & Parent Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="logo-container">
+            <div class="logo-icon">🎓</div>
+            <div class="logo-text">
+                <h1>Greenfield Academy</h1>
+                <span>EST. 1965</span>
+            </div>
+        </div>
+
+        <!-- Added: Three-Line Menu Button for Mobile Layout -->
+        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- Fixed: Removed duplicate nested nav tags and added id="nav-menu" -->
+        <nav class="nav-menu" id="nav-menu">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item">About Us</a>
+            <a href="admissions.html" class="nav-item">Admissions</a>
+            <a href="academics.html" class="nav-item">Academics</a>
+            <a href="faculty.html" class="nav-item">Faculty</a>
+            <a href="facilities.html" class="nav-item">Facilities</a>
+            <a href="gallery.html" class="nav-item">Gallery</a>
+            <a href="news-events.html" class="nav-item">News & Events</a>
+            <a href="portal.html" class="nav-item active">Portal</a> <!-- Active status set to Portal -->
+            <a href="contact.html" class="nav-item contact-btn">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Portal Gateway Section -->
+    <main class="portal-container">
+        <div class="center-heading-group">
+            <span class="section-tag-center">SECURE ACCESS</span>
+            <h2 class="portal-main-title">Student & Parent Portal</h2>
+            <p class="portal-subtitle">
+                Access attendance records, academic results, homework assignments, and fee payments — all in one secure place.
+            </p>
+        </div>
+
+        <!-- Two Portal Gateway Columns -->
+        <div class="portal-grid">
+            
+            <!-- Student Entry Card -->
+            <div class="portal-card-box">
+                <div class="portal-badge-icon">🎓</div>
+                <h3>Student Login</h3>
+                <ul class="portal-features-list">
+                    <li><span class="list-arrow">&gt;</span> View grades & report cards</li>
+                    <li><span class="list-arrow">&gt;</span> Check homework assignments</li>
+                    <li><span class="list-arrow">&gt;</span> Download study materials</li>
+                    <li><span class="list-arrow">&gt;</span> Track attendance record</li>
+                </ul>
+                <a href="student_login.html" class="btn-primary portal-action-btn">
+                    <span class="auth-icon">→</span> Student Sign In
+                </a>
+            </div>
+
+            <!-- Parent Entry Card -->
+            <div class="portal-card-box">
+                <div class="portal-badge-icon">👥</div>
+                <h3>Parent Login</h3>
+                <ul class="portal-features-list">
+                    <li><span class="list-arrow">&gt;</span> Monitor child's academic progress</li>
+                    <li><span class="list-arrow">&gt;</span> Pay school fees securely online</li>
+                    <li><span class="list-arrow">&gt;</span> Communicate with class teachers</li>
+                    <li><span class="list-arrow">&gt;</span> Receive real-time notifications</li>
+                </ul>
+                <a href="student_login.html" class="btn-primary portal-action-btn">
+                    <span class="auth-icon">→</span> Parent Sign In
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Floating Help Button -->
+    <div class="help-badge">?</div>
+
+    <!-- JavaScript Toggle Engine for Mobile Interactions -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navMenu = document.getElementById('nav-menu');
+
+            if (mobileMenu && navMenu) {
+                mobileMenu.addEventListener('click', function() {
+                    navMenu.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
